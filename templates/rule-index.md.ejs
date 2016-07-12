@@ -1,0 +1,198 @@
+---
+title: List of available rules
+layout: doc
+---
+
+# Rules
+
+Rules in ESLint are grouped by category to help you understand their purpose.
+
+No rules are enabled by default. The `"extends": "eslint:recommended"` property in a [configuration file](../user-guide/configuring#extending-configuration-files) enables rules that report common problems, which have a check mark (recommended) below.
+
+The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems (currently mostly whitespace) reported by rules which have a wrench (fixable) below.
+
+## Possible Errors
+
+These rules relate to possible syntax or logic errors in JavaScript code:
+
+<table class="ruleList">
+    <colgroup>
+        <col class="recommended"></col>
+        <col class="fixable"></col>
+        <col class="name"></col>
+        <col class="description"></col>
+    </colgroup>
+    <tbody>
+        <% for(var i=0; i<rules.PossibleErrors.length; i++) {%>
+        <tr>
+            <td><% if(rules.PossibleErrors[i].recommended) {%>(recommended)<% } %></td>
+            <td><% if(rules.PossibleErrors[i].fixable) {%>(fixable)<% } %></td>
+            <td><a href="<%= rules.PossibleErrors[i].name %>"><%= rules.PossibleErrors[i].name %></a></td>
+            <td><%= rules.PossibleErrors[i].description %></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+
+## Best Practices
+
+These rules relate to better ways of doing things to help you avoid problems:
+
+<table class="ruleList">
+    <colgroup>
+        <col class="recommended"></col>
+        <col class="fixable"></col>
+        <col class="name"></col>
+        <col class="description"></col>
+    </colgroup>
+    <tbody>
+        <% for(var i=0; i<rules.BestPractices.length; i++) {%>
+        <tr>
+            <td><% if(rules.BestPractices[i].recommended) {%>(recommended)<% } %></td>
+            <td><% if(rules.BestPractices[i].fixable) {%>(fixable)<% } %></td>
+            <td><a href="<%= rules.BestPractices[i].name %>"><%= rules.BestPractices[i].name %></a></td>
+            <td><%= rules.BestPractices[i].description %></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+
+## Strict Mode
+
+These rules relate to strict mode directives:
+
+<table class="ruleList">
+    <colgroup>
+        <col class="recommended"></col>
+        <col class="fixable"></col>
+        <col class="name"></col>
+        <col class="description"></col>
+    </colgroup>
+    <tbody>
+        <% for(var i=0; i<rules.StrictMode.length; i++) {%>
+        <tr>
+            <td><% if(rules.StrictMode[i].recommended) {%>(recommended)<% } %></td>
+            <td><% if(rules.StrictMode[i].fixable) {%>(fixable)<% } %></td>
+            <td><a href="<%= rules.StrictMode[i].name %>"><%= rules.StrictMode[i].name %></a></td>
+            <td><%= rules.StrictMode[i].description %></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+
+## Variables
+
+These rules relate to variable declarations:
+
+<table class="ruleList">
+    <colgroup>
+        <col class="recommended"></col>
+        <col class="fixable"></col>
+        <col class="name"></col>
+        <col class="description"></col>
+    </colgroup>
+    <tbody>
+        <% for(var i=0; i<rules.Variables.length; i++) {%>
+        <tr>
+            <td><% if(rules.Variables[i].recommended) {%>(recommended)<% } %></td>
+            <td><% if(rules.Variables[i].fixable) {%>(fixable)<% } %></td>
+            <td><a href="<%= rules.Variables[i].name %>"><%= rules.Variables[i].name %></a></td>
+            <td><%= rules.Variables[i].description %></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+
+## Node.js and CommonJS
+
+These rules relate to code running in Node.js, or in browsers with CommonJS:
+
+<table class="ruleList">
+    <colgroup>
+        <col class="recommended"></col>
+        <col class="fixable"></col>
+        <col class="name"></col>
+        <col class="description"></col>
+    </colgroup>
+    <tbody>
+        <% for(var i=0; i<rules.NodejsandCommonJS.length; i++) {%>
+        <tr>
+            <td><% if(rules.NodejsandCommonJS[i].recommended) {%>(recommended)<% } %></td>
+            <td><% if(rules.NodejsandCommonJS[i].fixable) {%>(fixable)<% } %></td>
+            <td><a href="<%= rules.NodejsandCommonJS[i].name %>"><%= rules.NodejsandCommonJS[i].name %></a></td>
+            <td><%= rules.NodejsandCommonJS[i].description %></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+
+## Stylistic Issues
+
+These rules relate to style guidelines, and are therefore quite subjective:
+
+<table class="ruleList">
+    <colgroup>
+        <col class="recommended"></col>
+        <col class="fixable"></col>
+        <col class="name"></col>
+        <col class="description"></col>
+    </colgroup>
+    <tbody>
+        <% for(var i=0; i<rules.StylisticIssues.length; i++) {%>
+        <tr>
+            <td><% if(rules.StylisticIssues[i].recommended) {%>(recommended)<% } %></td>
+            <td><% if(rules.StylisticIssues[i].fixable) {%>(fixable)<% } %></td>
+            <td><a href="<%= rules.StylisticIssues[i].name %>"><%= rules.StylisticIssues[i].name %></a></td>
+            <td><%= rules.StylisticIssues[i].description %></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+
+## ECMAScript 6
+
+These rules relate to ES6, also known as ES2015:
+
+<table class="ruleList">
+    <colgroup>
+        <col class="recommended"></col>
+        <col class="fixable"></col>
+        <col class="name"></col>
+        <col class="description"></col>
+    </colgroup>
+    <tbody>
+        <% for(var i=0; i<rules.ECMAScript6.length; i++) {%>
+        <tr>
+            <td><% if(rules.ECMAScript6[i].recommended) {%>(recommended)<% } %></td>
+            <td><% if(rules.ECMAScript6[i].fixable) {%>(fixable)<% } %></td>
+            <td><a href="<%= rules.ECMAScript6[i].name %>"><%= rules.ECMAScript6[i].name %></a></td>
+            <td><%= rules.ECMAScript6[i].description %></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+
+## Removed
+
+These rules from older versions of ESLint have been replaced by newer rules:
+
+|Removed rule|Replaced by
+|---|---
+|[generator-star](generator-star.md)|[generator-star-spacing](generator-star-spacing.md)
+|[global-strict](global-strict.md)|[strict](strict.md)
+|[no-arrow-condition](no-arrow-condition.md)|[no-confusing-arrow](no-confusing-arrow.md) and [no-constant-condition](no-constant-condition.md)
+|[no-comma-dangle](no-comma-dangle.md)|[comma-dangle](comma-dangle.md)
+|[no-empty-class](no-empty-class.md)|[no-empty-character-class](no-empty-character-class.md)
+|[no-empty-label](no-empty-label.md)|[no-labels](no-labels.md)
+|[no-extra-strict](no-extra-strict.md)|[strict](strict.md)
+|[no-reserved-keys](no-reserved-keys.md)|[quote-props](quote-props.md)
+|[no-space-before-semi](no-space-before-semi.md)|[semi-spacing](semi-spacing.md)
+|[no-wrap-func](no-wrap-func.md)|[no-extra-parens](no-extra-parens.md)
+|[space-after-function-name](space-after-function-name.md)|[space-before-function-paren](space-before-function-paren.md)
+|[space-after-keywords](space-after-keywords.md)|[keyword-spacing](keyword-spacing.md)
+|[space-before-function-parentheses](space-before-function-parentheses.md)|[space-before-function-paren](space-before-function-paren.md)
+|[space-before-keywords](space-before-keywords.md)|[keyword-spacing](keyword-spacing.md)
+|[space-in-brackets](space-in-brackets.md)|[object-curly-spacing](object-curly-spacing.md) and [array-bracket-spacing](array-bracket-spacing.md)
+|[space-return-throw-case](space-return-throw-case.md)|[keyword-spacing](keyword-spacing.md)
+|[space-unary-word-ops](space-unary-word-ops.md)|[space-unary-ops](space-unary-ops.md)
+|[spaced-line-comment](spaced-line-comment.md)|[spaced-comment](spaced-comment.md)

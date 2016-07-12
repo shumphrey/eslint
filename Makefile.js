@@ -196,6 +196,38 @@ function generateFormatterExamples(formatterInfo, prereleaseVersion) {
 }
 
 /**
+ * Generate a doc page that lists all of the rules and links to them
+ * @param {string} basedir The directory in which to look for code.
+ * @returns {void}
+ */
+function generateRuleIndexPage(basedir) {
+    var result = {},
+        outputFile = "../eslint.github.io/docs/rules/index.md";
+
+    find(path.join(basedir, "/lib/rules/")).filter(fileType("js")).forEach(function(filename) {
+        var rule = require(filename);
+
+        var basename = path.basename(filename, ".js"),
+            output = {
+                name: basename,
+                description: rule.meta.docs.description,
+                recommended: rule.meta.docs.recommended || false,
+                fixable: !!rule.meta.fixable
+            },
+            categoryName = rule.meta.docs.category.replace(/\s|\./g, "");
+
+        if (!result[categoryName]) {
+            result[categoryName] = [];
+        }
+        result[categoryName].push(output);
+    });
+
+    var output = ejs.render(cat(path.resolve("./templates/rule-index.md.ejs")), {rules: result});
+
+    output.to(outputFile);
+}
+
+/**
  * Creates a release version tag and pushes to origin.
  * @returns {void}
  */
@@ -629,7 +661,7 @@ target.gensite = function(prereleaseVersion) {
                 text += "* [Documentation source](" + docsUrl + baseName + ")\n";
             }
 
-            // 9. Update content of the file with changes
+            // 9. Generate rule list page
             text.to(filename.replace("README.md", "index.md"));
         }
     });
@@ -643,16 +675,19 @@ target.gensite = function(prereleaseVersion) {
     }
     cp("-rf", TEMP_DIR + "*", outputDir);
 
-    // 11. Delete temporary directory
+    // 11. Generate rule listing page
+    generateRuleIndexPage(process.cwd());
+
+    // 12. Delete temporary directory
     rm("-r", TEMP_DIR);
 
-    // 12. Update demos, but only for non-prereleases
+    // 13. Update demos, but only for non-prereleases
     if (!prereleaseVersion) {
         cp("-f", "build/eslint.js", SITE_DIR + "js/app/eslint.js");
         cp("-f", "conf/eslint.json", SITE_DIR + "js/app/eslint.json");
     }
 
-    // 13. Create Example Formatter Output Page
+    // 14. Create Example Formatter Output Page
     generateFormatterExamples(getFormatterResults(), prereleaseVersion);
 };
 
