@@ -61,6 +61,7 @@ if (useStdIn) {
             console.error(ex.stack);
             exitCode = 1;
         }
+        process.exitCode = exitCode;
     }));
 } else if (init) {
     var configInit = require("../lib/config/config-initializer");
